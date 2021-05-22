@@ -108,5 +108,5 @@ Com a aplicação no ar acesse a seguinte url:
 Poderar encontrar os endpoints da aplicação também em `docs/insomnia/Insomnia_2021-05-22.json`, podendo importar na ferramenta insomnia.
 
 <p align="center" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
-  Feito po <strong> Ian Mateus</strong>
+  Feito por <strong> Ian Mateus</strong>
 </p>

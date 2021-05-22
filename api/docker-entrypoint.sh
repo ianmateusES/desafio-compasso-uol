@@ -1,4 +1,10 @@
 #!/bin/sh
-yarn migration
+
+if [ -e $(pwd)/'rundb' ]; then
+  echo 'Tabelas já criadas'
+else
+  yarn typeorm migration:run
+  echo '' >> rundb
+fi
 
 exec "$@"

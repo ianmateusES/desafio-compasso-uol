@@ -8,8 +8,8 @@ services:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_DATABASE}
-    volumes:
-      - $HOME/dataset/uol/postgres:/var/lib/postgresql/data
+    # volumes:
+    #   - $HOME/dataset/uol/postgres:/var/lib/postgresql/data
     restart: always
     networks:
       - uol-db-net
@@ -17,8 +17,12 @@ services:
   backend:
     build: ./api
     container_name: uol-api
-    entrypoint: dockerize -wait tcp://postgres:5432 -timeout 50s -wait-retry-interval 10s docker-entrypoint.sh
+    entrypoint: dockerize -wait tcp://postgres:5432 -timeout 50s -wait-retry-interval 10s ./docker-entrypoint.sh 
     command: yarn start
+    environment:
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
     # volumes:
     #   - ./api:/home/node/api
     depends_on:

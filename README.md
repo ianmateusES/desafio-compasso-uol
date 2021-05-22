@@ -81,9 +81,6 @@ $ git commit -m 'feat/bug/fix: minhas alterações'
 $ git push origin minha-branch
 ```
 
-```
-  export DB_HOST=postgres
-  export DB_PASSWORD=123456
-  export DB_USERNAME=postgres
-  export APP_SECRET=example
-```
+<p align="center" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+  Feito po <strong> Ian Mateus</strong>
+</p>

@@ -33,7 +33,7 @@ O projeto foi feito com as seguintes tecnologias:
 git clone https://github.com/ianmateusES/desafio-compasso-uol.git
 cd desafio-compasso-uol
 ```
-2. Entre na pasta `api`, renomei o arquivo `ormconfig.build.example.json` para `ormconfig.build.json`, preencha as credenciais do banco e exporte em seu terminal. Exemplo:
+2. Entre na pasta `api`, renomei o arquivo `ormconfig.build.example.json` para `ormconfig.build.json`, crie as credenciais do banco e exporte em seu terminal. Exemplo:
 ```json
 {
   "name": "default",
@@ -50,7 +50,7 @@ cd desafio-compasso-uol
   }
 }
 ```
-Agora exporte as configurações para criação do conteiner do postgres:
+Agora exporte em seu terminal as configurações para criação do conteiner do postgres:
 ```bash
 export DB_USERNAME=nomeUsuario
 export DB_PASSWORD=senhaDB

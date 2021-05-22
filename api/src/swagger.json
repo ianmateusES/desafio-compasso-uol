@@ -1,0 +1,492 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Uol Documentation",
+    "description": "This is an API Uol",
+    "version": "1.0.0",
+    "contact": {
+      "email": "ec.ianmateus@alu.ufc.br",
+      "name": "Ian Mateus"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333"
+    }
+  ],
+  "paths": {
+    "/cities": {
+      "post": {
+        "tags": ["City"],
+        "summary": "Create a city",
+        "description": "Create a new category",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/City"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/City"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "City already exists!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "error",
+                    "message": "City already exists!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["City"],
+        "summary": "List a city",
+        "description": "List a city",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The city name",
+            "example": "Fortaleza"
+          },
+          {
+            "in": "query",
+            "name": "uf",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The city uf",
+            "example": "CE"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List city",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{id}": {
+      "put": {
+        "tags": ["City"],
+        "summary": "Update a city",
+        "description": "Update a city",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The city id",
+            "example": "9b42a110-004f-4eba-9988-fc14c5b13769"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/City"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update city",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/City"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "City already exists!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "error",
+                    "message": "City already exists!"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "City not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "error",
+                    "message": "City not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers": {
+      "post": {
+        "tags": ["Custome"],
+        "summary": "Create a custome",
+        "description": "Creata a custome",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Custome"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Custome"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Custome already exists!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "error",
+                    "message": "Custome already exists!"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Custome"],
+        "summary": "List a custome",
+        "description": "List a custome",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The customer name",
+            "example": "Mateus"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List custome",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Custome"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers/{id}": {
+      "put": {
+        "tags": ["Custome"],
+        "summary": "Update a custome",
+        "description": "Update a custome",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The custome id",
+            "example": "9b42a110-004f-4eba-9988-fc14c5b13769"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Custome"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update custome",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Custome"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Custome already exists!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "error",
+                    "message": "Custome already exists!"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Custome not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "status": "error",
+                    "message": "Custome not found"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Custome"],
+        "summary": "Delete a custome",
+        "description": "Delete a custome",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The custome id",
+            "example": "9b42a110-004f-4eba-9988-fc14c5b13769"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete custome"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "City": {
+        "type": "object",
+        "required": [
+          "name",
+          "uf"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uf": {
+            "type": "string"
+          },
+          "create_at": {
+            "type": "srting"
+          },
+          "update_at": {
+            "type": "srting"
+          }
+        },
+        "example": {
+          "name": "Fortaleza",
+          "uf": "CE"
+        }
+      },
+      "Custome": {
+        "type": "object",
+        "required": [
+          "name",
+          "sex",
+          "birthday",
+          "city_id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "birthday": {
+            "type": "string"
+          },
+          "city_id": {
+            "type": "object",
+            "$ref": "#/definitions/City"
+          },
+          "age": {
+            "type": "string"
+          },
+          "create_at": {
+            "type": "srting"
+          },
+          "update_at": {
+            "type": "srting"
+          }
+        },
+        "example": {
+          "name": "Mateus",
+          "sex": "Masculino",
+          "birthday": "1999-10-10T00:00:00.000Z",
+          "city_id": "9b42a110-004f-4eba-9988-fc14c5b13769"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "City": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "uf": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "name": "Fortaleza",
+        "uf": "CE"
+      }
+    },
+    "Custome": {
+      "type": "object",
+      "required": [
+        "name",
+        "city_id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "city_id": {
+          "type": "object",
+          "$ref": "#/definitions/City"
+        }
+      },
+      "example": {
+        "name": "Mateus",
+        "city_id": "9b42a110-004f-4eba-9988-fc14c5b13769"
+      }
+    }
+  }
+}

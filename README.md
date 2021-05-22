@@ -69,7 +69,7 @@ Para mais informações da API acesse `api/README.md`.
 
 ```bash
 # Clone o seu fork
-$ git clone url-do-seu-fork && cd desafio-eureka
+$ git clone url-do-seu-fork && cd desafio-compasso-uol
 
 # Crie uma branch com sua feature ou correção de bugs
 $ git checkout -b minha-branch

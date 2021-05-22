@@ -33,7 +33,7 @@ O projeto foi feito com as seguintes tecnologias:
 git clone https://github.com/ianmateusES/desafio-compasso-uol.git
 cd desafio-compasso-uol
 ```
-2. Entre na pasta `api`, faça uma copia do arquivo `ormconfig.build.example.json` para `ormconfig.build.json` preencha as credenciais do banco e exporte em seu terminal. Example:
+2. Entre na pasta `api`, renomei o arquivo `ormconfig.build.example.json` para `ormconfig.build.json`, preencha as credenciais do banco e exporte em seu terminal. Exemplo:
 ```json
 {
   "name": "default",

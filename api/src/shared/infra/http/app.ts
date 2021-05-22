@@ -6,6 +6,7 @@ import '@shared/infra/typeorm';
 import '@shared/container';
 
 import { errors } from 'celebrate';
+import cors from 'cors';
 import express, { Request, Response, NextFunction } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
@@ -16,6 +17,7 @@ import { routes } from './routes';
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(routes);
 

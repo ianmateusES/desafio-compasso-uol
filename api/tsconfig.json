@@ -2,8 +2,11 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "rootDir": "./",
     "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "allowJs": true,
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
@@ -21,6 +24,7 @@
     "prettier.config.js",
     "babel.config.js",
     "dist",
+    "jest.config.ts",
     "coverage"
   ]
 }

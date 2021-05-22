@@ -5,9 +5,9 @@ services:
     image: postgres:13-alpine
     container_name: uol-postgres
     environment:
-      - POSTGRES_USER=uol
+      - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=uol
+      - POSTGRES_DB=${DB_DATABASE}
     volumes:
       - $HOME/dataset/uol/postgres:/var/lib/postgresql/data
     restart: always
@@ -20,7 +20,7 @@ services:
     entrypoint: dockerize -wait tcp://postgres:5432 -timeout 50s -wait-retry-interval 10s docker-entrypoint.sh
     command: yarn start
     # volumes:
-    #   - ./apia:/home/node/api
+    #   - ./api:/home/node/api
     depends_on:
       - postgres
     networks:

@@ -3,9 +3,9 @@
   "type": "postgres",
   "host": "postgres",
   "port": 5432,
-  "username": "uol",
+  "username": "",
   "password": "",
-  "database": "uol",
+  "database": "",
   "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
   "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
   "cli": {

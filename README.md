@@ -31,7 +31,7 @@ O projeto foi feito com as seguintes tecnologias:
 1. Clone o repositório
 ```
 git clone https://github.com/ianmateusES/desafio-compasso-uol.git
-cd desafio-eureka
+cd desafio-compasso-uol
 ```
 2. Entre na pasta `api`, faça uma copia do arquivo `ormconfig.build.example.json` para `ormconfig.build.json` preencha as credenciais do banco e exporte em seu terminal. Example:
 ```json

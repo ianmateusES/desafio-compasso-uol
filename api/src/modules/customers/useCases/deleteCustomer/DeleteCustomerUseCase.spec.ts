@@ -30,6 +30,6 @@ describe('Delete Customer', () => {
 
     await deleteCustomerUseCase.execute(customer.id);
 
-    expect(await customersRepositoryInMemory.findAll()).toStrictEqual([]);
+    expect(await customersRepositoryInMemory.findAll({})).toStrictEqual([]);
   });
 });

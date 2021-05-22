@@ -19,7 +19,7 @@ class CustomersRepositoryInMemory implements ICustomersRepository {
     return listCustomers;
   }
 
-  public async findById(id: string): Promise<Customer> {
+  public async findById(id: string): Promise<Customer | undefined> {
     return this.customers.find(customer => customer.id === id);
   }
 

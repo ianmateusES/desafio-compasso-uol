@@ -14,11 +14,14 @@ class CitiesRepositoryInMemory implements ICitiesRepository {
     return this.cities;
   }
 
-  public async findById(id: string): Promise<City> {
+  public async findById(id: string): Promise<City | undefined> {
     return this.cities.find(city => city.id === id);
   }
 
-  public async findByCityState({ name, uf }: IFindCityStateDTO): Promise<City> {
+  public async findByCityState({
+    name,
+    uf,
+  }: IFindCityStateDTO): Promise<City | undefined> {
     return this.cities.find(city => city.name === name && city.uf === uf);
   }
 

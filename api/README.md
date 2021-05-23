@@ -27,18 +27,6 @@ A API visa realizar o CRUD das entidades de Clientes e Cidades.
     yarn
   ```
 
-## Iniciando a aplicação com Docker
-1. Crie as credencias do banco de dados entrando no arquivo `build-api.sh` e substituindo os valores **uol**.
-
-2. Forneça permissões para o arquivo `build-api.sh`:
-```bash
-chmod +x build-api.sh
-```
-3. Start a aplicação executando:
-```bash
-./build-api.sh
-```
-
 ## Iniciando a aplicação localmente
 Substitua os campos no `ormconfig.json` com as credênciais do postgres.
 

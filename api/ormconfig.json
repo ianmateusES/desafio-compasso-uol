@@ -3,9 +3,9 @@
   "type": "postgres",
   "host": "localhost",
   "port": 5432,
-  "username": "root",
-  "password": "default",
-  "database": "db",
+  "username": "uol",
+  "password": "uol",
+  "database": "uol",
   "migrations": ["./src/database/migrations/*.ts"],
   "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {

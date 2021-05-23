@@ -5,7 +5,7 @@
   "port": 5432,
   "username": "root",
   "password": "default",
-  "database": "",
+  "database": "db",
   "migrations": ["./src/database/migrations/*.ts"],
   "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {

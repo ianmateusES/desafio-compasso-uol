@@ -33,36 +33,26 @@ O projeto foi feito com as seguintes tecnologias:
 git clone https://github.com/ianmateusES/desafio-compasso-uol.git
 cd desafio-compasso-uol
 ```
-2. Entre na pasta `api`, renomei o arquivo `ormconfig.build.example.json` para `ormconfig.build.json`, crie as credenciais do banco e exporte em seu terminal. Exemplo:
-```json
-{
-  "name": "default",
-  "type": "postgres",
-  "host": "postgres",
-  "port": 5432,
-  "username": "nomeUsuario", // Preencher
-  "password": "senhaDB", // Preencher
-  "database": "nameDataBase", // Preencher
-  "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
-  "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
-  "cli": {
-    "migrationsDir": "./dist/shared/infra/typeorm/migrations"
-  }
-}
-```
-Agora exporte em seu terminal as configurações para criação do conteiner do postgres:
+2. Entre no arquivo `build.sh`, defina as credencias do banco de dados substituindo os valores `uol`. Por exemplo:
 ```bash
-export DB_USERNAME=nomeUsuario
-export DB_PASSWORD=senhaDB
-export DB_DATABASE=nameDataBase
-```
-3. Start a aplicação executando:
-```
-docker-compose up
-```
-4. Com a aplicação no ar e proxy reverso do nginx pronto. Basta acessar a url `http://localhost:8080/api-docs/#/` para ter acesso a documentação da API e executar as requisições.
+#!/bin/sh
+export DB_USERNAME=root # Nome do usario que deseja criar
+export DB_PASSWORD=admin123 # Senha de acesso ao banco
+export DB_DATABASE=db # Nome do database que deseja utilizar
 
-Para mais informações da API acesse `api/README.md`.
+docker-compose up --build
+```
+3. Forneça ao arquivo `build.sh` permissões:
+```
+chmod +x build.sh
+```
+4. Start a aplicação executando:
+```
+./build.sh
+```
+5. Com a aplicação inicializada e proxy reverso do nginx pronto. Basta acessar a url `http://localhost:8080/api-docs/#/` para visualizar a documentação da API.
+
+Para mais informações da API acesse o arquivo `api/README.md`.
 
 ## :thinking: Como Contribuir?
 **Faça um fork deste repositório**

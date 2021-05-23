@@ -17,13 +17,12 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "start": "node dist/shared/infra/http/server.js",
-    "migration": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
+    "migration": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config ormconfig.build.ts migration:run",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "jest"
   },
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "celebrate": "^14.0.0",
     "class-transformer": "^0.4.0",
     "cors": "^2.8.5",

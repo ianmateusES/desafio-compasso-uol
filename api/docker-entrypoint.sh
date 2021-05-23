@@ -3,7 +3,7 @@
 if [ -e $(pwd)/'rundb' ]; then
   echo 'Tabelas já criadas'
 else
-  yarn typeorm migration:run
+  yarn migration
   echo '' >> rundb
 fi
 

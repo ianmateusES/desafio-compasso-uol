@@ -27,59 +27,16 @@ A API visa realizar o CRUD das entidades de Clientes e Cidades.
     yarn
   ```
 
-## Configurações iniciais
-1. Faça a copia dos arquivos `ormconfig.example.json` para `ormconfig.json` e `ormconfig.build.example.json` para `ormconfig.build.json`
-2. Substitua os campos com as credenciais do banco de dados postgres de teste e de produção. Por exemplo:
-```json
-// ormconfig.json
-{
-  "name": "default",
-  "type": "postgres",
-  "host": "localhost", // host de conexão com o banco, caso docker-compose será nome do serviço
-  "port": 5432, // porta de comunicação padrão do postgres
-  "username": "uol", // nome do usuário do banco de dados
-  "password": "docker", // senha do banco
-  "database": "uol", // nome do database no postgres
-  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
-  "entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
-  "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
-  }
-}
-
-// ormconfig.build.json
-{
-  "name": "default",
-  "type": "postgres",
-  "host": "postgres", // host de conexão com o banco, caso docker-compose será nome do serviço, se não localhost
-  "port": 5432, // porta de comunicação padrão do postgres
-  "username": "uol", // nome do usuário do banco de dados
-  "password": "docker", // senha do banco
-  "database": "uol", // nome do database no postgres
-  "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
-  "entities": ["./dist/modules/**/infra/typeorm/entities/*.js"],
-  "cli": {
-    "migrationsDir": "./dist/shared/infra/typeorm/migrations"
-  }
-}
-```
-
 ## Iniciando a aplicação com Docker
-Crie o container do postgres:
+1. Crie as credencias do banco de dados entrando no arquivo `build-api.sh` e substituindo os valores **uol**.
+
+2. Forneça permissões para o arquivo `build-api.sh`:
 ```bash
-docker run --name uol-postgres --network bridge -e POSTGRES_USER=uol -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=uol -p 5432:5432 postgres:13-alpine
+chmod +x build-api.sh
 ```
-
-Substitua os campos no `ormconfig.json` e no `ormconfig.build.example.json` com as credênciais do container do postgres.
-
-Crie as tabalas no banco executando:
+3. Start a aplicação executando:
 ```bash
-yarn typeorm migration:run
-```
-
-Criando a imagem e o container da API:
-```bash
-docker build -t uol-api . && docker run --name api --network bridge -p 3333:3333 uol-api
+./build-api.sh
 ```
 
 ## Iniciando a aplicação localmente

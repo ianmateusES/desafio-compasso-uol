@@ -6,9 +6,9 @@ export default {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  migrations: ['./dist/database/migrations/*.js'],
+  migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
   entities: ['./dist/modules/**/entities/*.js'],
   cli: {
-    migrationsDir: './dist/database/migrations',
+    migrationsDir: './dist/shared/infra/typeorm/migrations',
   },
 };

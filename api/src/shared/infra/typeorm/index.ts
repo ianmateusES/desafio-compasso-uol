@@ -13,6 +13,7 @@ getConnectionOptions().then(options => {
   newOptions.username = process.env.DB_USERNAME || newOptions.username;
   newOptions.password = process.env.DB_PASSWORD || newOptions.password;
   newOptions.database = process.env.DB_DATABASE || newOptions.database;
+
   createConnection({
     ...options,
   });

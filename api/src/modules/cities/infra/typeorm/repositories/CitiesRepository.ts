@@ -1,8 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { ICreateCityDTO } from '@modules/cities/dtos/ICreateCityDTO';
-import { IFilterCityDTO } from '@modules/cities/dtos/IFilterCityDTO';
-import { IFindCityStateDTO } from '@modules/cities/dtos/IFindCityStateDTO';
+import { ICityDTO } from '@modules/cities/dtos/ICityDTO';
 import { ICitiesRepository } from '@modules/cities/repositories/ICitiesRepository';
 import { objectAttributeFilter } from '@shared/infra/typeorm/utils/objectAttributeFilter';
 
@@ -15,8 +13,12 @@ class CitiesRepository implements ICitiesRepository {
     this.ormRepository = getRepository(City);
   }
 
-  public async findAll(data: IFilterCityDTO): Promise<City[]> {
-    const cities = await this.ormRepository.find(objectAttributeFilter(data));
+  public async findAll(data: Partial<ICityDTO>, page = 1): Promise<City[]> {
+    const cities = await this.ormRepository.find({
+      ...objectAttributeFilter(data),
+      take: 10,
+      skip: 10 * (page - 1),
+    });
 
     return cities;
   }
@@ -24,13 +26,13 @@ class CitiesRepository implements ICitiesRepository {
   public async findById(id: string): Promise<City> {
     const city = await this.ormRepository.findOne(id);
 
-    return city;
+    return city as City;
   }
 
-  public async findByCityState({ name, uf }: IFindCityStateDTO): Promise<City> {
+  public async findByCityState({ name, uf }: ICityDTO): Promise<City> {
     const city = await this.ormRepository.findOne({ name, uf });
 
-    return city;
+    return city as City;
   }
 
   public async findByName(name: string): Promise<City[]> {
@@ -45,7 +47,7 @@ class CitiesRepository implements ICitiesRepository {
     return cities;
   }
 
-  public async create({ name, uf }: ICreateCityDTO): Promise<City> {
+  public async create({ name, uf }: ICityDTO): Promise<City> {
     const city = this.ormRepository.create({
       name,
       uf,

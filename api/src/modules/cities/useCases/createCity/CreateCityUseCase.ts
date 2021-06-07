@@ -17,7 +17,7 @@ class CreateCityUseCase {
     private citiesRepository: ICitiesRepository,
   ) {}
 
-  public async execute({ name, uf }: IRequest): Promise<City | undefined> {
+  public async execute({ name, uf }: IRequest): Promise<City> {
     const nameCapitalize = capitalize(name);
     const ufUpperCase = uf.toUpperCase();
 
